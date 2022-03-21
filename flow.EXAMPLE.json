@@ -1,0 +1,34 @@
+{
+	"emulators": {
+		"default": {
+			"port": 3569,
+			"serviceAccount": "emulator-account"
+		}
+	},
+	"contracts": {
+		"FlowBank": "./cadence/contracts/FlowBank.cdc"
+	},
+	"networks": {
+		"testnet": "access.devnet.nodes.onflow.org:9000",
+		"emulator": "127.0.0.1:3569",
+		"mainnet": "access.mainnet.nodes.onflow.org:9000"
+	},
+	"accounts": {
+		"testnet-account": {
+			"address": "0123456789abcdef",
+			"key": "UR-KEY-GOES-HERE"
+		},
+		"emulator-account": {
+			"address": "f8d6e0586b0a20c7",
+			"key": "UR-KEY-GOES-HERE"
+		}
+	},
+	"deployments": {
+		"emulator": {
+			"emulator-account": ["FlowBank"]
+		},
+		"testnet": {
+			"testnet-account": ["FlowBank"]
+		}
+	}
+}

@@ -1,0 +1,1287 @@
+:root {
+    --main-color: turquoise;
+    --secondary-color: dodgerblue;
+}
+
+body {
+    text-align: center;
+    font-family: helvetica;
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: ghostwhite;
+}
+
+/*
+    Main Pixel Map Components
+*/
+#pixelMapContainer {
+    /* z-index: 1; */
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    overflow: hidden;
+
+    /* disable double click zoom*/
+    /* touch-action: manipulation; */
+}
+
+#pixelMapDisplayContainer {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+    Pages Components
+*/
+/*main container*/
+#pagesContainer {
+    /* z-index: 1; */
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: ghostwhite;
+    flex: 1;
+
+    /* overflow: scroll; */
+    overflow: hidden;
+
+    /* disable double click zoom*/
+    /* touch-action: manipulation; */
+}
+
+.openPages {
+    display: flex !important;
+}
+
+/* block viewer container map interaction styling */
+#blockViewerMapInteractionContainer {
+    height: 100%;
+    width: 65%;
+
+    cursor: grab;
+}
+
+.redrawContainer {
+    z-index: 1;
+    width: 25px;
+    height: 175px;
+    position: fixed;
+    left: 5px;
+    top: calc(50% - 87.5px);
+    display: flex;
+    flex-direction: column;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 6px 3px gainsboro;
+}
+
+.redrawIncrease {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: dodgerblue;
+    color: white;
+    cursor: zoom-in;
+    user-select: none;
+    border-bottom: solid 1px gainsboro;
+}
+
+.redrawDecrease {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    cursor: zoom-out;
+    user-select: none;
+    border-top: solid 1px gainsboro;
+}
+
+#noBillyErrorMessage {
+    width: 100%;
+    height: 100%;
+}
+
+#mainPixelMapSvg {
+    /* padding-left: 50px; */
+
+    cursor: grab;
+}
+
+/*all pages controller container*/
+#displayContainer {
+    width: 35%;
+    /* height: calc(100% - 100px); */
+    height: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    overflow: visible;
+
+    position: absolute;
+
+    right: 0;
+    bottom: auto;
+}
+
+.displayControllerContainer {
+    width: 90%;
+    height: calc(100%);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: darkgray;
+    /* overflow: hidden; */
+}
+
+.activeDisplayController {
+    display: flex !important; /* Must override using important */
+}
+
+/*mint container styling*/
+#mintColorSelectInput {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#mintColorSelectInputWrapper {
+    margin-top: 10px;
+    height: calc(48px + 1vmin);
+    width: calc(48px + 1vmin);
+    border: solid gainsboro 2px;
+    border-radius: 100%;
+    box-shadow: 0 0 5px 2px gainsboro;
+}
+
+#mintColorSelectHexText {
+    margin-top: 5px;
+    color: var(--main-color);
+    font-size: calc(12px + 1vmin);
+}
+
+#mintAmountHeader {
+    margin-top: calc(10px + 1vmin);
+}
+
+#mintAmountContainer {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#mintAmountInput {
+    border: none;
+    width: 90%;
+    overflow: hidden;
+    text-align: center;
+    font-size: calc(16px + 1vmin);
+}
+
+/* Chrome, Safari, Edge, Opera */
+#mintAmountInput::-webkit-outer-spin-button,
+#mintAmountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+#mintAmountInput[type=number] {
+  -moz-appearance: textfield;
+}
+
+#mintAmountInput:focus {
+    outline: solid dodgerblue 2px;
+}
+
+#mintAmountContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#mintAmountInputContainer {
+    width: 50%;
+    height: calc(35px + 5vmin);
+    overflow: hidden;
+    display: flex;
+    border: solid 2px gainsboro;
+    box-shadow: 0 0 6px 3px gainsboro;
+    border-radius: 10px;
+}
+
+#mintAmountButtonContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid gainsboro 2px;
+    border-radius: 0 10px 10px 0;
+    border-width: 0 0 0 2px;
+    height: calc(100%);
+    width: calc(35px + 1vmin);
+    cursor: pointer;
+}
+
+#mintAmountButtonIncrease {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+
+    background-color: dodgerblue;
+    border: solid gainsboro 2px;
+    border-width: 0 0 1px 0;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+#mintAmountButtonDecrease {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: ghostwhite;
+    border: solid gainsboro 2px;
+    border-width: 1px 0 0 0;
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+#mintButton {
+    margin-top: 25px;
+    padding: 10px 0;
+    width: 75%;
+    border: solid var(--main-color) 2px;
+    box-shadow: 0 0 6px 3px gainsboro;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    background-image: linear-gradient(to bottom right, dodgerblue, turquoise);
+}
+
+/* all edit page styling */
+#editColorSelectContainer {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#editColorSelectInput {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+#editColorSelectInputWrapper {
+    height: calc(48px + 1vmin);
+    width: calc(48px + 1vmin);
+    border: solid gainsboro 2px;
+    border-radius: 100%;
+    box-shadow: 0 0 6px 3px gainsboro;
+}
+
+#editColorSelectHexText {
+    margin-top: 8px;
+    color: var(--main-color);
+    font-size: calc(12px + 1vmin);
+}
+
+#editChangesMadeContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#editChangesMadeTitle {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#editChangesMadeHolder {
+    width: calc(100% - 4px);
+    height: calc(60px + 2vmin);
+    padding: 8px 0;
+    background-color: ghostwhite;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 6px 3px gainsboro, inset 0 0 6px 3px gainsboro; */
+    box-shadow: 0 0 6px 3px gainsboro;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 5px;
+}
+
+.editPixel {
+    min-width: 64px;
+
+    margin: 0 8px; /* distance between pixels*/
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    color: black;
+    font-size: calc(8px + 1vmin);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+
+}
+
+.editPixelId {
+    font-size: calc(12px + 1vmin);
+    padding: 8px;
+}
+
+.editPixelRemove {
+    width: calc(100%);
+    height: calc(8px + 1vmin);
+    color: white;
+    background-color: red;
+    border-top: solid 2px gainsboro;
+    /* border-radius: 0 0 10px 10px; */
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.trashImg {
+    height: 100%;
+}
+
+#editButton {
+    margin-top: 15px;
+    padding: 10px 0;
+    width: 75%;
+    border: solid var(--main-color) 2px;
+    box-shadow: 0 0 6px 3px gainsboro;
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom right, dodgerblue, turquoise);
+}
+
+/* transfer page styling */
+#transferSelectBillyContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#transferBillyHolder {
+    width: calc(100% - 4px);
+    height: calc(60px + 2vmin);
+    padding: 8px 0;
+    background-color: ghostwhite;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    /* box-shadow: 0 0 6px 3px gainsboro, inset 0 0 6px 3px gainsboro; */
+    box-shadow: 0 0 6px 3px gainsboro;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-top: 5px;
+}
+
+.transferPixel {
+    min-width: 64px;
+
+    margin: 0 8px; /* distance between pixels*/
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    color: black;
+    font-size: calc(8px + 1vmin);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+.transferPixelId {
+    font-size: calc(12px + 1vmin);
+    padding: 8px;
+}
+
+.transferPixelRemove {
+    width: calc(100%);
+    height: calc(8px + 1vmin);
+    color: white;
+    background-color: red;
+    border-top: solid 2px gainsboro;
+    /* border-radius: 0 0 10px 10px; */
+    padding: 5px;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+#transferAddressContainer {
+    margin-top: 15px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#transferAddressInput {
+    margin-top: 8px;
+    width: 100%;
+    height: 32px;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+}
+
+#transferAddressInput:focus {
+    outline: none;
+}
+
+#transferCheckContainer {
+    margin-top: 15px;
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#transferConsent {
+    width: 25px;
+    height: 25px;
+}
+
+#transferConsent:checked {
+    background: dodgerblue;
+}
+
+#transferConsent:after {
+    background: dodgerblue;
+}
+
+#transferConsentLabel {
+    width: 50%;
+}
+
+#transferButton {
+    margin-top: 15px;
+    padding: 10px 0;
+    width: 75%;
+    border: solid var(--main-color) 2px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    background-image: linear-gradient(to bottom right, dodgerblue, turquoise);
+    box-shadow: 0 0 6px 3px gainsboro;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* info page styling */
+#ownerInfoContainer {
+    margin-top: calc(5vmin);
+
+    border: solid gainsboro 2px;
+    padding-top: 5px;
+    border-radius: 10px;
+
+    z-index: 1;
+
+    color: darkgray;
+
+    background-color: ghostwhite;
+
+    box-shadow: 0 0 6px 3px gainsboro;
+}
+
+#ownerInfoAddress {
+
+    margin-top: 5px;
+    border-top: solid gainsboro 2px;
+    padding: 10px;
+
+    font-size: calc(8px + 1vmin);
+
+    color: dodgerblue;
+
+    overflow-wrap: anywhere;
+}
+
+#rankInfoContainer {
+    margin-top: calc(5vmin);
+
+    border: solid gainsboro 2px;
+    padding-top: 5px;
+    border-radius: 10px;
+    width: 50%;
+
+    z-index: 1;
+
+    color: darkgray;
+
+    background-color: ghostwhite;
+
+    box-shadow: 0 0 6px 3px gainsboro;
+}
+
+#rankInfoValue {
+    margin-top: 5px;
+    border-top: solid gainsboro 2px;
+
+    font-size: calc(14px + 1vmin);
+
+    color: black;
+
+    overflow-wrap: anywhere;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#rankValueMain {
+    padding: 5px;
+
+    font-size: calc(22px + 1vmin);
+
+    font-weight: bold;
+
+    color: dodgerblue;
+}
+
+#pixelInfoContainer {
+    width: calc(100% - 64px); /* minus 64px because it will overlap zoom on mobile if not*/
+    font-size: calc(14px + 1vmin);
+
+    color: darkgray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pixelInfoDisplayContainer {
+    padding-top: 5px;
+    margin-top: 5px;
+
+    width: 100%;
+
+    background-color: ghostwhite;
+    border: solid gainsboro 2px;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    color: darkgray;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#pixelInfoDisplayContent {
+    margin-top: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: solid 2px gainsboro;
+}
+
+.pixelInfoHolder {
+    width: 50%;
+}
+
+.pixelInfoHolderHeader {
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+    background-color: gainsboro;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixelInfoHolderValue {
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+    color: dodgerblue;
+    font-size: calc(18px + 1vmin);
+}
+
+
+/*
+    Controller Components
+*/
+/*Menu button styling*/
+#menuButton {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    font-size: calc(8px + 1vmin);
+    border-radius: calc(24px + 1vmin);
+    background-color: white;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.menuImg {
+    height: calc(12px + 2vmin);
+    cursor: pointer;
+    padding: 0 0 4px 0;
+}
+
+/*title header styling*/
+#header {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#logo {
+    height: calc(12px + 3vmin);
+    margin-bottom: 5px;
+}
+
+#headerInfo {
+    display: flex;
+    flex-direction: column;
+
+    border: solid 2px gainsboro;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    overflow: hidden;
+
+    text-align: center;
+}
+
+.headerInfoContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.headerInfoTitle {
+    color: darkgray;
+    background-color: gainsboro;
+    font-size: calc(10px + 1vmin);
+    padding: 4px 10px;
+}
+
+.headerInfoValue {
+    background-color: ghostwhite;
+    color: var(--main-color);
+    font-size: calc(8px + 1vmin);
+    font-weight: bold;
+    padding: 4px 10px;
+}
+
+/*login button styling*/
+#walletLogIn {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    border-radius: calc(24px + 1vmin);
+    font-size: calc(8px + 1vmin);
+    background-color: white;
+    border: 2px solid var(--main-color);
+    color: var(--main-color);
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+/* All contract buttons styling*/
+#contractControllerContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contractButton {
+    height: calc(48px + 2vmin);
+    width: calc(48px + 2vmin);
+    border-radius: calc(24px + 1vmin);
+
+    background-color: white;
+    border: 2px solid gainsboro;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    color: var(--main-color);
+    cursor: pointer;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-size: calc(6px + 1vmin);
+
+    position: relative;
+}
+
+#activePage {
+    transform: scale(1.25);
+    border-color: var(--main-color);
+}
+
+
+/* pop up styling and loading and menu*/
+#menuContainer {
+    width: 100%;
+    height: calc(100% - 48px - 32px - 2vmin);
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: calc(48px + 32px + 2vmin);
+}
+
+#closeMenuButton {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    background-color: dodgerblue;
+    border: 2px solid dodgerblue;
+    border-radius: calc(24px + 1vmin);
+    color: white;
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#menuContent {
+
+    width: 75%;
+    height: 75%;
+    flex: 1;
+    background-color: ghostwhite;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px ghostwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+#menuTabContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: gainsboro;
+}
+
+.menuTab {
+    width: 33.33%;
+    font-size: calc(12px + 1vmin);
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+#activeMenuTab {
+    background-color: dodgerblue;
+    color: white;
+    font-weight: bold;
+}
+
+.menuContentHolder {
+    width: 300%;
+    height: calc(100% - 21px - 2vmin);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    transition: 0.4s ease;
+}
+
+#showWhitepaper {
+    left: 0%;
+}
+#showHowTo {
+    left: -100%;
+}
+#showExtra {
+    left: -200%;
+}
+
+.menuContentPage {
+    height: 100%;
+    width: 33.33%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    overflow: scroll;
+}
+
+.menuContentPageList {
+    width: 100%;
+}
+
+.menuContentPageList li {
+    margin: 32px 0;
+    line-height: 1.64;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(14px + 1vmin);
+}
+
+.listItemHolder {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+}
+
+.menuBullet {
+    width: calc(8px + 1vmin);
+    height: calc(8px + 1vmin);
+    border-radius: calc(8px + 1vmin);
+    border: solid 2px turquoise;
+    /* box-shadow: 0 0 6px 3px dodgerblue; */
+    background-image: linear-gradient(turquoise, dodgerblue);
+    position: absolute;
+    left: 6px;
+}
+
+.spacer {
+    margin-left: calc(16px);
+}
+
+.menuItemText {
+    width: calc(100% - 96px);
+    font-size: calc(12px + 1vmin);
+}
+
+.videoContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: gainsboro;
+
+    border-radius: 0 0 calc(10px + 1vmin) calc(10px + 1vmin);
+
+    /* transition: 2s ease; */
+
+    height: 50px;
+    overflow: hidden;
+
+    position: relative;
+}
+
+.howToVideo {
+    width: 50%;
+}
+
+.videoExpander {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: gainsboro;
+    height: 50px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+}
+
+.expanderOpen {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.expanderClose {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.expanderImg {
+    height: 50%;
+
+    pointer-events: none
+}
+
+.imgOpen {
+    transform: rotate(0deg);
+}
+
+.imgClose {
+    transform: rotate(180deg);
+}
+
+.expanderText {
+    /* height: 100%; */
+    font-size: calc(16px);
+
+    pointer-events: none
+}
+
+.menuItemHeader {
+    font-size: calc(18px + 2vmin);
+    font-weight: bold;
+}
+
+.menuContentPageRow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#backgroundColorInputWrapper {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    border-radius: calc(24px + 1vmin);
+    border: solid 2px gainsboro;
+    box-shadow: 0 0 6px 3px gainsboro;
+
+    cursor: pointer;
+}
+
+#backgroundColorInput {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.popUpContainer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popUpElemContainer {
+    width: 75%;
+    height: 75%;
+    background-color: ghostwhite;
+    border-radius: 10px;
+    box-shadow: 0 0 6px 3px ghostwhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#loadingButtonContainer {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/*user info buttons*/
+#userInfo {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    border-radius: calc(24px + 1vmin);
+    font-size: calc(8px + 1vmin);
+    background-color: white;
+    border: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+#closeUserInfoButton {
+    width: calc(48px + 2vmin);
+    height: calc(48px + 2vmin);
+    background-color: dodgerblue;
+    border: 2px solid dodgerblue;
+    border-radius: calc(24px + 1vmin);
+    color: white;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+#currentUser {
+    font-size: calc(16px + 1vmin);
+}
+
+.checkSucceessButton {
+    width: 75%;
+    height: auto;
+    padding: 10px 0;
+    border: solid black 2px;
+    border-radius: 10px;
+}
+
+.initCollectionButton {
+    width: 75%;
+    height: auto;
+    padding: 10px 0;
+    border: solid var(--main-color) 2px;
+    border-radius: 10px;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+#vaultSetUp {
+    border: solid var(--secondary-color) 2px;
+    border-radius: 10px;
+    color: var(--secondary-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 75%;
+    height: auto;
+    padding: 10px 0;
+
+    cursor: pointer;
+}
+
+#walletLogOut {
+    border: solid red 2px;
+    border-radius: 10px;
+    color: red;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 75%;
+    height: auto;
+    padding: 10px 0;
+
+    cursor: pointer;
+}
+
+#popUpMessageContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 85%;
+    font-size: calc(18px + 1vmin);
+}
+
+#popUpSuccessContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 85%;
+    font-size: calc(18px + 1vmin);
+}
+
+.popUpButtonContainer {
+    width: 100%;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.popUpButtonClose {
+    padding: 8px 16px;
+    border: solid 2px var(--main-color);
+    background-color: var(--main-color);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: calc(18px + 1vmin);
+    color: black;
+    box-shadow: 0 0 6px 3px gainsboro;
+}
+
+
+/*
+    Below handles the mobile styling
+*/
+@media all and (orientation: portrait), (max-width: 750px) {
+    #pagesContainer {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    #blockViewerMapInteractionContainer {
+        height: 65%;
+        width: 100%;
+    }
+
+    #displayContainer {
+        width: 100%;
+        height: auto;
+
+        right: auto;
+        bottom: 100px;
+    }
+
+    #transfer {
+        justify-content: flex-start;
+        margin-bottom: 100px; /* this is to buffer the controls */
+    }
+
+    #mainPixelMapSvg {
+        padding-left: 0px;
+    }
+
+    .redrawContainer {
+        top: calc(50% - 87.5px - 17.5%);
+    }
+}
