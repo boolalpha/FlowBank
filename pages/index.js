@@ -1645,7 +1645,7 @@ export default function Home() {
                                         <div className="menuItemText">Connect To Blocto Wallet</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/SignUpBlocto.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/SignUpBlocto.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1655,7 +1655,7 @@ export default function Home() {
                                         <div className="menuItemText">Set Up Collection In Account</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/SetUpAccount.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/SetUpAccount.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1665,7 +1665,7 @@ export default function Home() {
                                         <div className="menuItemText">Get Test Network FlowTokens</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/FundAccount.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/FundAccount.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1675,7 +1675,7 @@ export default function Home() {
                                         <div className="menuItemText">Mint A Coin</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/MintCoin.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/MintCoin.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1685,7 +1685,7 @@ export default function Home() {
                                         <div className="menuItemText">Edit Coin Color</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/EditColor.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/EditColor.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1695,7 +1695,7 @@ export default function Home() {
                                         <div className="menuItemText">Transfer A Coin To Different Wallet</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/TransferCoin.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/TransferCoin.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
@@ -1705,7 +1705,7 @@ export default function Home() {
                                         <div className="menuItemText">Get Coin Info</div>
                                     </div>
                                     <div className="videoContainer">
-                                        <video controls muted loop class="howToVideo" loading="lazy"><source src="./video/howTo/GetCoinInfo.mp4" type="video/mp4" /></video>
+                                        <video controls muted loop className="howToVideo" loading="lazy"><source src="./video/howTo/GetCoinInfo.mp4" type="video/mp4" /></video>
                                         <VideoExpander />
                                     </div>
                                 </li>
